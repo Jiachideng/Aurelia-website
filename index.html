@@ -284,6 +284,10 @@
 
 
 
+
+
+
+
         <!-- Portfolio Modals-->
         <!-- Portfolio Modal 1-->
         <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1" aria-hidden="true">
@@ -482,6 +486,24 @@
                 </div>
             </div>
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
@@ -491,5 +513,31 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                if (window.innerWidth <= 768) { // Only runs on mobile
+                    const items = document.querySelectorAll(".portfolio-item");
+        
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add("highlighted");
+                            } else {
+                                entry.target.classList.remove("highlighted");
+                            }
+                        });
+                    }, { threshold: 0.6 });
+        
+                    items.forEach(item => {
+                        observer.observe(item);
+                    });
+                }
+            });
+        </script>
+        
+    
+    
+    
     </body>
 </html>

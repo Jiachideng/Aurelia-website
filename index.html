@@ -516,15 +516,18 @@
     
         <script>
             document.addEventListener("DOMContentLoaded", function () {
-                if (window.innerWidth <= 768) { // Only runs on mobile
+                if (window.innerWidth <= 768) { // Only run on mobile
                     const items = document.querySelectorAll(".portfolio-item");
         
                     const observer = new IntersectionObserver((entries) => {
                         entries.forEach(entry => {
                             if (entry.isIntersecting) {
                                 entry.target.classList.add("highlighted");
-                            } else {
-                                entry.target.classList.remove("highlighted");
+        
+                                // Remove the highlight after 500ms
+                                setTimeout(() => {
+                                    entry.target.classList.remove("highlighted");
+                                }, 500);
                             }
                         });
                     }, { threshold: 0.6 });

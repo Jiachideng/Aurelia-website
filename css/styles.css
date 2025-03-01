@@ -11144,3 +11144,18 @@ html {
       opacity: 1;
   }
 }
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  /* Targets the first child div of #about, which has your inline style */
+  #about > div:first-child {
+    background-position: right center !important;
+    background-size: 120% !important; /* Adjust the zoom level as needed */
+  }
+}
